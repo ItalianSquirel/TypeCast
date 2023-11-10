@@ -2,19 +2,47 @@
 //
 
 #include <iostream>
+#include <cstdlib>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+
+// Function to clear the console screen
+void clearScreen() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
+
+int main() {
+    // Print the "title screen"
+    std::cout << "\nWelcome to the game! Press Enter to start...\n";
+    
+    // Wait for the user to press Enter
+    std::cin.get();
+
+    // Clear the screen
+    clearScreen();
+
+    // Ask the user if they want to go fishing
+    std::cout << "Want to go fishing? Type the word \"cast\"!\n";
+
+    std::string userInput;
+    std::cin >> userInput;
+
+    // Check if the user typed "cast"
+    if (userInput == "cast") {
+        std::cout << "Let's go fishing!\n";
+        // Add the fishing game logic here
+    } else {
+        std::cout << "Invalid input. Game over.\n";
+    }
+
+    return 0;
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
