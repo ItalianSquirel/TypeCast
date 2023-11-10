@@ -1,2 +1,7 @@
-﻿  TypeCast.cpp
-  TypeCast.vcxproj -> C:\Users\Adrian\source\repos\TypeCast\x64\Debug\TypeCast.exe
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(496,5): warning MSB8003: The WindowsSDKDir property is not defined. Some build tools may not be found.
+  Fish.cpp
+C:\Users\petie\Documents\TypeCast\Fish.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\yvals.h(12,10): fatal error C1083: Cannot open include file: 'crtdbg.h': No such file or directory
+  TypeCast.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\yvals.h(12,10): fatal error C1083: Cannot open include file: 'crtdbg.h': No such file or directory
+  Generating Code...
