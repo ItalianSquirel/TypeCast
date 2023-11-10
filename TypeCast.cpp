@@ -54,9 +54,35 @@ int main() {
 
     // Sample fish species
     std::vector<FishSpecies> fishSpecies;
-    fishSpecies.push_back(FishSpecies("Salmon", 1, 25, 1, 36));
-    fishSpecies.push_back(FishSpecies("Marlin", 0.2f, 14, 8, 1000));
-    fishSpecies.push_back(FishSpecies("Oarfish", 120, 4320, 50, 600));
+    fishSpecies.push_back(FishSpecies("Salmon", 12, 30, 5, 36));
+    fishSpecies.push_back(FishSpecies("Marlin", 18, 120, 300, 1000));
+    fishSpecies.push_back(FishSpecies("Oarfish", 120, 432, 50, 600));
+    fishSpecies.push_back(FishSpecies("Trout", 6, 12, 0.5f, 8));
+    fishSpecies.push_back(FishSpecies("Bass", 3, 10, 0.3f, 5));
+    fishSpecies.push_back(FishSpecies("Tuna", 24, 48, 20, 300));
+    fishSpecies.push_back(FishSpecies("Swordfish", 18, 30, 15, 200));
+    fishSpecies.push_back(FishSpecies("Guppy", 0.5f, 2, 0.01f, 0.1));
+    fishSpecies.push_back(FishSpecies("Cod", 9, 18, 1, 15));
+    fishSpecies.push_back(FishSpecies("Catfish", 5, 14, 0.6f, 8));
+    fishSpecies.push_back(FishSpecies("Angelfish", 3, 6, 0.02f, 0.2));
+    fishSpecies.push_back(FishSpecies("Piranha", 4, 8, 0.3f, 2));
+    fishSpecies.push_back(FishSpecies("Clownfish", 2, 5, 0.05f, 0.3));
+    fishSpecies.push_back(FishSpecies("Sturgeon", 12, 60, 10, 300));
+    fishSpecies.push_back(FishSpecies("Halibut", 18, 36, 10, 150));
+    fishSpecies.push_back(FishSpecies("Mahi Mahi", 10, 20, 5, 40));
+    fishSpecies.push_back(FishSpecies("Pufferfish", 4, 8, 0.1f, 1));
+    fishSpecies.push_back(FishSpecies("Walleye", 1, 30, 2, 20));
+    fishSpecies.push_back(FishSpecies("Perch", 0.5f, 12, 0.3f, 1.5));
+    fishSpecies.push_back(FishSpecies("Bluegill", 0.2f, 8, 0.1f, 0.5));
+    fishSpecies.push_back(FishSpecies("Snapper", 1.2f, 18, 2, 15));
+    fishSpecies.push_back(FishSpecies("Carp", 1.5f, 36, 5, 30));
+    fishSpecies.push_back(FishSpecies("Rockfish", 1, 14, 0.8f, 3));
+    fishSpecies.push_back(FishSpecies("Flounder", 0.4f, 12, 0.5f, 2));
+    fishSpecies.push_back(FishSpecies("Haddock", 1.2f, 22, 1.5f, 10));
+    fishSpecies.push_back(FishSpecies("Redfish", 0.8f, 20, 1, 6));
+    fishSpecies.push_back(FishSpecies("Archerfish", 0.3f, 10, 0.05f, 0.2));
+    fishSpecies.push_back(FishSpecies("Blue Whale", 1000, 100000, 200000, 200000));
+    fishSpecies.push_back(FishSpecies("Magikarp", 0.2f, 12, 0.02f, 0.5));
 
     // Game loop
     while (true) {
