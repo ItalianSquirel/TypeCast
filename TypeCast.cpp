@@ -1,22 +1,28 @@
-// TypeCast.cpp : This file contains the 'main' function. Program execution begins and ends there.
-// Petie was here 11/9/26
-
 #include <iostream>
 #include <cstdlib>
+#include <ctime>  // Include this header for seed initialization
+#include <vector>
+#include <string>
 
 // Function to clear the console screen
 void clearScreen() {
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
 }
 
 int main() {
+    // Seed the random number generator
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
+    // Sample fish names
+    std::vector<std::string> fishNames = {"Trout", "Bass", "Salmon"};
+
     // Print the "title screen"
     std::cout << "\nWelcome to the game! Press Enter to start...\n";
-    
+
     // Wait for the user to press Enter
     std::cin.get();
 
@@ -31,15 +37,16 @@ int main() {
 
     // Check if the user typed "cast"
     if (userInput == "cast") {
-        std::cout << "Let's go fishing!\n";
+        // Generate a random index to select a fish from the vector
+        int randomIndex = std::rand() % fishNames.size();
+
+        // Print the selected fish
+        std::cout << "You caught a " << fishNames[randomIndex] << "!\n";
+
         // Add the fishing game logic here
     } else {
         std::cout << "Invalid input. Game over.\n";
     }
 
     return 0;
-
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
