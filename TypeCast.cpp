@@ -55,7 +55,7 @@ int main() {
     // Sample fish species
     std::vector<FishSpecies> fishSpecies;
     fishSpecies.push_back(FishSpecies("Salmon", 1, 25, 1, 36));
-    fishSpecies.push_back(FishSpecies(“Marlin”, .2, 14, 8, 1000));
+    fishSpecies.push_back(FishSpecies(“Marlin”, 0.2f, 14, 8, 1000));
     fishSpecies.push_back(FishSpecies(“Oarfish”, 120, 4320, 50, 600));
 
     // Game loop
