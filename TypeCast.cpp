@@ -54,7 +54,7 @@ int main() {
 
     // Sample fish species
     std::vector<FishSpecies> fishSpecies;
-    fishSpecies.push_back(FishSpecies("Salmon", 12, 30, 5, 36));
+    fishSpecies.push_back(FishSpecies("King Salmon", 12, 30, 5, 36));
     fishSpecies.push_back(FishSpecies("Marlin", 18, 120, 300, 1000));
     fishSpecies.push_back(FishSpecies("Oarfish", 120, 432, 50, 600));
     fishSpecies.push_back(FishSpecies("Trout", 6, 12, 0.5f, 8));
@@ -91,7 +91,8 @@ int main() {
     fishSpecies.push_back(FishSpecies("Plecostomus", 0.1f, 1.5f, 1.5f, 12));
     fishSpecies.push_back(FishSpecies("Manta Ray", 200, 2950, 60, 276));
     fishSpecies.push_back(FishSpecies("Bumblebee", 0.0002f, 0.0004f, 0.4f, 0.9f));
-
+    fishSpecies.push_back(FishSpecies("Blobfish", 6, 20, 10, 40));
+    
 
     // Game loop
     while (true) {
