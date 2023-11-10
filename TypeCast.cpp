@@ -85,6 +85,15 @@ int main() {
     fishSpecies.push_back(FishSpecies("Archerfish", 0.3f, 10, 0.05f, 0.2));
     fishSpecies.push_back(FishSpecies("Blue Whale", 1000, 100000, 200000, 200000));
     fishSpecies.push_back(FishSpecies("Magikarp", 0.2f, 12, 0.02f, 0.5));
+    fishSpecies.push_back(FishSpecies("Humuhumunukunukuapua'a", 0.15f, 5, 1, 12));
+    fishSpecies.push_back(FishSpecies("O'opu Alamo'o", 0.05f, 0.15f, 0.75f, 2.8f));
+    fishSpecies.push_back(FishSpecies("Patagonian Toothfish", 10, 200, 9, 90));
+    fishSpecies.push_back(FishSpecies("Tiger Shark", 400, 2000, 72, 198));
+    fishSpecies.push_back(FishSpecies("Dugong", 400, 2240, 72, 160));
+    fishSpecies.push_back(FishSpecies("Plecostomus", 0.1f, 1.5f, 1.5f, 12));
+    fishSpecies.push_back(FishSpecies("Manta Ray", 200, 2950, 60, 276));
+    fishSpecies.push_back(FishSpecies("Bumblebee", 0.0002, 0.0004, 0.4, 0.9));
+
 
     // Game loop
     while (true) {
