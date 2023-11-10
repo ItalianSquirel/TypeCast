@@ -110,7 +110,7 @@ int main() {
             Fish caughtFish(fishSpecies[randomIndex]);
 
             // Print the details of the caught fish
-            std::cout << "You've got a " << caughtFish.name << " on the hook!\n";
+            std::cout << "You've got a \033[1m" << caughtFish.name << "\033[0m on the hook!\n";
             std::cout << "Type its name to reel it in!\n";
 
             //set the time up
