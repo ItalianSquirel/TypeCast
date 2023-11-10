@@ -4,21 +4,14 @@
 #include <vector>
 #include <string>
 
-// Function to clear the console screen
-void clearScreen() {
-#ifdef _WIN32
-    system("cls");
-#else
-    system("clear");
-#endif
-}
-
 int main() {
     // Seed the random number generator
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
     // Sample fish names
-    std::vector<std::string> fishNames = {"Trout", "Bass", "Salmon"};
+    std::vector<Fish> fish = {
+        new Fish("Salmon", 1, 25, 8, 36)
+    };
 
     // Game loop
     while (true) {
@@ -40,10 +33,10 @@ int main() {
         // Check if the user typed "cast"
         if (userInput == "cast") {
             // Generate a random index to select a fish from the vector
-            int randomIndex = std::rand() % fishNames.size();
+            int randomIndex = std::rand() % fish.size();
 
             // Print the selected fish
-            std::cout << "You caught a " << fishNames[randomIndex] << "!\n";
+            std::cout << "You caught a " << fish[randomIndex].name << "!\n";
 
             // Ask if the player wants to play again
             std::cout << "Do you want to play again? (yes/no): ";
@@ -62,4 +55,27 @@ int main() {
     std::cout << "Thanks for playing!\n";
 
     return 0;
+}
+
+//represents a species of fish with arbitrary (but functional) default values
+struct Fish {
+    std::string name = "unnamed fish";
+    float minWeight = 0.5f;
+    float maxWeight = 25;
+    float minLength = 4;
+    float maxLength = 64;
+
+    //constructor
+    Fish(std::string n, int minW, int maxW, int minL, int maxL) : name(n), minWeight(minW), maxWeight(maxW), minLength(minL), maxLength(maxL) {
+        //init code
+    }
+};
+
+// Function to clear the console screen
+void clearScreen() {
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
 }
