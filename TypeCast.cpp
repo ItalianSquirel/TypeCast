@@ -121,7 +121,7 @@ int main() {
             // Check if the user entered the correct fish name
             if (userInput == caughtFish.name) {
                 if (std::chrono::duration_cast<std::chrono::duration<float>>(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - hookTime)).count() <= secondsToCatch) {
-                    std::cout << "You caught a " << caughtFish.name << "!\n";
+                    std::cout << "You caught a "\033[1m << caughtFish.name << \033[1m"!\n";
                     std::cout << "Weight: " << caughtFish.weight << " lbs, Length: " << caughtFish.length << " inches\n";
                 }
                 else {
