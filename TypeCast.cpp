@@ -63,19 +63,19 @@ int main() {
     fishSpecies.push_back(FishSpecies("Bass", 3, 10, 0.3f, 5));
     fishSpecies.push_back(FishSpecies("Tuna", 24, 48, 20, 300));
     fishSpecies.push_back(FishSpecies("Swordfish", 18, 30, 15, 200));
-    fishSpecies.push_back(FishSpecies("Guppy", 0.5f, 2, 0.01f, 0.1));
+    fishSpecies.push_back(FishSpecies("Guppy", 0.5f, 2, 0.01f, 0.1f));
     fishSpecies.push_back(FishSpecies("Cod", 9, 18, 1, 15));
     fishSpecies.push_back(FishSpecies("Catfish", 5, 14, 0.6f, 8));
-    fishSpecies.push_back(FishSpecies("Angelfish", 3, 6, 0.02f, 0.2));
+    fishSpecies.push_back(FishSpecies("Angelfish", 3, 6, 0.02f, 0.2f));
     fishSpecies.push_back(FishSpecies("Piranha", 4, 8, 0.3f, 2));
-    fishSpecies.push_back(FishSpecies("Clownfish", 2, 5, 0.05f, 0.3));
+    fishSpecies.push_back(FishSpecies("Clownfish", 2, 5, 0.05f, 0.3f));
     fishSpecies.push_back(FishSpecies("Sturgeon", 12, 60, 10, 300));
     fishSpecies.push_back(FishSpecies("Halibut", 18, 36, 10, 150));
     fishSpecies.push_back(FishSpecies("Mahi Mahi", 10, 20, 5, 40));
     fishSpecies.push_back(FishSpecies("Pufferfish", 4, 8, 0.1f, 1));
     fishSpecies.push_back(FishSpecies("Walleye", 1, 30, 2, 20));
-    fishSpecies.push_back(FishSpecies("Perch", 0.5f, 12, 0.3f, 1.5));
-    fishSpecies.push_back(FishSpecies("Bluegill", 0.2f, 8, 0.1f, 0.5));
+    fishSpecies.push_back(FishSpecies("Perch", 0.5f, 12, 0.3f, 1.5f));
+    fishSpecies.push_back(FishSpecies("Bluegill", 0.2f, 8, 0.1f, 0.5f));
     fishSpecies.push_back(FishSpecies("Snapper", 1.2f, 18, 2, 15));
     fishSpecies.push_back(FishSpecies("Carp", 1.5f, 36, 5, 30));
     fishSpecies.push_back(FishSpecies("Rockfish", 1, 14, 0.8f, 3));
@@ -92,7 +92,7 @@ int main() {
     fishSpecies.push_back(FishSpecies("Dugong", 400, 2240, 72, 160));
     fishSpecies.push_back(FishSpecies("Plecostomus", 0.1f, 1.5f, 1.5f, 12));
     fishSpecies.push_back(FishSpecies("Manta Ray", 200, 2950, 60, 276));
-    fishSpecies.push_back(FishSpecies("Bumblebee", 0.0002, 0.0004, 0.4, 0.9));
+    fishSpecies.push_back(FishSpecies("Bumblebee", 0.0002f, 0.0004f, 0.4f, 0.9f));
 
 
     // Game loop
