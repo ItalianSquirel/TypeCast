@@ -58,7 +58,14 @@ int main() {
             int randomIndex = std::rand() % fishes.size();
 
             // Print the selected fish
-            std::cout << "You caught a " << fishes[randomIndex]->name << "!\n";
+            std::cout << "You've got a " << fishes[randomIndex]->name << " on the hook!\nType its name to reel it in!\n";
+            std::cin >> userInput;
+            if (userInput == fishes[randomIndex]->name) {
+                std::cout << "you caught a " << fishes[randomIndex]->name << "\n";
+            }
+            else {
+                std::cout << "oops! It broke away!";
+            }
 
             // Ask if the player wants to play again
             std::cout << "Do you want to play again? (yes/no): ";
