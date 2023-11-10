@@ -4,7 +4,6 @@
 #include <vector>
 #include <string>
 #include <chrono>
-#include <windows.h>
 
 // Represents a species of fish with arbitrary (but functional) default values
 struct FishSpecies {
@@ -52,7 +51,6 @@ void clearScreen() {
 int main() {
     // Seed the random number generator
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
-    const char* soundFilePath = "catch.wav";
 
     // Sample fish species
     std::vector<FishSpecies> fishSpecies;
@@ -119,11 +117,6 @@ int main() {
 
             // Create an instance of CaughtFish based on the selected fish species
             Fish caughtFish(fishSpecies[randomIndex]);
-
-            
-            // Play the catching sound in the background
-            PlaySound(soundFilePath, NULL, SND_FILENAME | SND_ASYNC);
-
             
             // Print the details of the caught fish
             std::cout << "You've got a \033[1m" << caughtFish.name << "\033[0m on the hook!\n";
