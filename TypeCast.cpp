@@ -82,7 +82,7 @@ int main() {
     fishSpecies.push_back(FishSpecies("Flounder", 0.4f, 12, 0.5f, 2));
     fishSpecies.push_back(FishSpecies("Haddock", 1.2f, 22, 1.5f, 10));
     fishSpecies.push_back(FishSpecies("Redfish", 0.8f, 20, 1, 6));
-    fishSpecies.push_back(FishSpecies("Archerfish", 0.3f, 10, 0.05f, 0.2));
+    fishSpecies.push_back(FishSpecies("Archerfish", 0.3f, 10, 0.05f, 0.2f));
     fishSpecies.push_back(FishSpecies("Blue Whale", 1000, 100000, 200000, 200000));
     fishSpecies.push_back(FishSpecies("Magikarp", 0.2f, 12, 0.02f, 0.5));
     fishSpecies.push_back(FishSpecies("Humuhumunukunukuapua'a", 0.15f, 5, 1, 12));
