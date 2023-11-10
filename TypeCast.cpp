@@ -3,6 +3,7 @@
 #include <ctime>
 #include <vector>
 #include <string>
+#include <chrono>
 
 // Represents a species of fish with arbitrary (but functional) default values
 struct FishSpecies {
@@ -13,20 +14,20 @@ struct FishSpecies {
     float maxLength = 64;
 
     // Constructor
-    FishSpecies(std::string n, int minW, int maxW, int minL, int maxL)
+    FishSpecies(std::string n, float minW, float maxW, float minL, float maxL)
         : name(n), minWeight(minW), maxWeight(maxW), minLength(minL), maxLength(maxL) {
         // Init code
     }
 };
 
 // Represents an instance of a caught fish with calculated stats
-struct CaughtFish {
+struct Fish {
     std::string name = "unnamed fish";
     float weight = 0.0f;
     float length = 0.0f;
 
     // Constructor using a FishSpecies
-    CaughtFish(const FishSpecies& species)
+    Fish(const FishSpecies& species)
         : name(species.name), weight(generateRandom(species.minWeight, species.maxWeight)),
           length(generateRandom(species.minLength, species.maxLength)) {
         // Init code
@@ -78,19 +79,28 @@ int main() {
             int randomIndex = std::rand() % fishSpecies.size();
 
             // Create an instance of CaughtFish based on the selected fish species
-            CaughtFish caughtFish(fishSpecies[randomIndex]);
+            Fish caughtFish(fishSpecies[randomIndex]);
 
             // Print the details of the caught fish
             std::cout << "You've got a " << caughtFish.name << " on the hook!\n";
             std::cout << "Type its name to reel it in!\n";
+
+            //set the time up
+            float secondsToCatch = caughtFish.name.length() * 0.5f;
+            std::chrono::time_point<std::chrono::system_clock> hookTime = std::chrono::system_clock::now();
             std::cin >> userInput;
 
             // Check if the user entered the correct fish name
             if (userInput == caughtFish.name) {
-                std::cout << "You caught a " << caughtFish.name << "!\n";
-                std::cout << "Weight: " << caughtFish.weight << " lbs, Length: " << caughtFish.length << " inches\n";
+                if (std::chrono::duration_cast<std::chrono::duration<float>>(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - hookTime)).count() <= secondsToCatch) {
+                    std::cout << "You caught a " << caughtFish.name << "!\n";
+                    std::cout << "Weight: " << caughtFish.weight << " lbs, Length: " << caughtFish.length << " inches\n";
+                }
+                else {
+                    std::cout << "Too slow! The fish got off the hook.\n";
+                }
             } else {
-                std::cout << "Oops! It broke away!\n";
+                std::cout << "The line snapped! Your fish got away!\n";
             }
 
             // Ask if the player wants to play again
