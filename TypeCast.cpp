@@ -4,9 +4,6 @@
 #include <iostream>
 #include <cstdlib>
 
-int main()
-{
-
 // Function to clear the console screen
 void clearScreen() {
     #ifdef _WIN32
