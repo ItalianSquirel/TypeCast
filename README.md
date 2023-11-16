@@ -34,6 +34,9 @@ Our main goals for creating TypeCast are:
 
 We are excited to take on this project, and we hope you enjoy playing TypeCast as much as we enjoy creating it!
 
+## Bug Notice
+Important: There is a known bug when typing "yes" to cast again after reeling in a Mahi Mahi fish. We're working to resolve this issue.
+
 ## Stay Tuned!
 
 Follow this GitHub repository for updates on our progress, contribute your ideas, and join us in our journey to combine fishing and typing in an engaging gaming experience.
