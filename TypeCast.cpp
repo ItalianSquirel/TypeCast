@@ -34,7 +34,7 @@ struct Fish {
     }
 
     // Function to generate a random float in a given range
-    static float generateRandom(float min, float max) {
+    static inline float generateRandom(float min, float max) {
         return min + static_cast<float>(std::rand()) / (static_cast<float>(RAND_MAX / (max - min)));
     }
 };
@@ -73,14 +73,14 @@ int main() {
     fishSpecies.push_back(FishSpecies("Pufferfish", 4, 8, 0.1f, 1));
     fishSpecies.push_back(FishSpecies("Walleye", 1, 30, 2, 20));
     fishSpecies.push_back(FishSpecies("Perch", 0.5f, 12, 0.3f, 1.5f));
-    fishSpecies.push_back(FishSpecies("Bluegill", 0.2f, 8, 0.1f, 0.5f));
+    fishSpecies.push_back(FishSpecies("Bluegill", 0.2f, 8, 3, 10));
     fishSpecies.push_back(FishSpecies("Snapper", 1.2f, 18, 2, 15));
     fishSpecies.push_back(FishSpecies("Carp", 1.5f, 36, 5, 30));
     fishSpecies.push_back(FishSpecies("Rockfish", 1, 14, 0.8f, 3));
     fishSpecies.push_back(FishSpecies("Flounder", 0.4f, 12, 0.5f, 2));
     fishSpecies.push_back(FishSpecies("Haddock", 1.2f, 22, 1.5f, 10));
     fishSpecies.push_back(FishSpecies("Redfish", 0.8f, 20, 1, 6));
-    fishSpecies.push_back(FishSpecies("Archerfish", 0.3f, 10, 0.05f, 0.2f));
+    fishSpecies.push_back(FishSpecies("Archerfish", 0.3f, 10, 2, 8));
     fishSpecies.push_back(FishSpecies("Blue Whale", 1000, 100000, 200000, 200000));
     fishSpecies.push_back(FishSpecies("Magikarp", 0.2f, 12, 0.02f, 0.5));
     fishSpecies.push_back(FishSpecies("Humuhumunukunukuapua'a", 0.15f, 5, 1, 12));
@@ -95,7 +95,8 @@ int main() {
     
 
     // Game loop
-    while (true) {
+    std::string userInput;
+    while (userInput != "no") {
         // Print the "title screen"
         std::cout << "\nWelcome to the game! Press Enter to start...\n";
 
@@ -107,8 +108,6 @@ int main() {
 
         // Ask the user if they want to go fishing
         std::cout << "Want to go fishing? Type the word \"cast\"!\n";
-
-        std::string userInput;
         std::cin >> userInput;
 
         // Check if the user typed "cast"
@@ -142,16 +141,10 @@ int main() {
             }
 
             // Ask if the player wants to play again
-            std::cout << "Do you want to play again? (yes/no): ";
-            std::cin >> userInput;
-
-            // Check if the user wants to play again
-            if (userInput != "yes") {
-                break; // Exit the game loop
+            while (userInput != "yes" && userInput != "no") {
+                std::cout << "Do you want to play again? (yes/no): ";
+                std::cin >> userInput;
             }
-        } else {
-            std::cout << "Invalid input. Game over.\n";
-            break; // Exit the game loop
         }
     }
 
