@@ -53,49 +53,46 @@ int main() {
     // Seed the random number generator
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
     // Sample fish species
-    std::array<FishSpecies,1> fishes{ {
-        {"King Salmon", 12, 30, 5, 36}
+    std::array<FishSpecies,38> fishes{ {
+        {"King Salmon", 12, 30, 5, 36},
+        {"Marlin", 18, 120, 300, 1000},
+        {"Oarfish", 120, 432, 50, 600},
+        {"Trout", 6, 12, 0.5f, 8},
+        {"Bass", 3, 10, 0.3f, 5},
+        {"Tuna", 24, 48, 20, 300},
+        {"Swordfish", 18, 30, 15, 200},
+        {"Guppy", 0.5f, 2, 0.01f, 0.1f},
+        {"Cod", 9, 18, 1, 15},
+        {"Catfish", 5, 14, 0.6f, 8},
+        {"Angelfish", 3, 6, 0.02f, 0.2f},
+        {"Piranha", 4, 8, 0.3f, 2},
+        {"Clownfish", 2, 5, 0.05f, 0.3f},
+        {"Sturgeon", 12, 60, 10, 300},
+        {"Halibut", 18, 36, 10, 150},
+        {"Mahi Mahi", 10, 20, 5, 40},
+        {"Pufferfish", 4, 8, 0.1f, 1},
+        {"Walleye", 1, 30, 2, 20},
+        {"Perch", 0.5f, 12, 0.3f, 1.5f},
+        {"Bluegill", 0.2f, 8, 3, 10},
+        {"Snapper", 1.2f, 18, 2, 15},
+        {"Carp", 1.5f, 36, 5, 30},
+        {"Rockfish", 1, 14, 0.8f, 3},
+        {"Flounder", 0.4f, 12, 0.5f, 2},
+        {"Haddock", 1.2f, 22, 1.5f, 10},
+        {"Redfish", 0.8f, 20, 1, 6},
+        {"Archerfish", 0.3f, 10, 2, 8},
+        {"Blue Whale", 1000, 100000, 200000, 200000},
+        {"Magikarp", 0.2f, 12, 0.02f, 0.5},
+        {"Humuhumunukunukuapua'a", 0.15f, 5, 1, 12},
+        {"O'opu Alamo'o", 0.05f, 0.15f, 0.75f, 2.8f},
+        {"Patagonian Toothfish", 10, 200, 9, 90},
+        {"Tiger Shark", 400, 2000, 72, 198},
+        {"Dugong", 400, 2240, 72, 160},
+        {"Plecostomus", 0.1f, 1.5f, 1.5f, 12},
+        {"Manta Ray", 200, 2950, 60, 276},
+        {"Bumblebee", 0.0002f, 0.0004f, 0.4f, 0.9f},
+        {"Blobfish", 6, 20, 10, 40}
     } };
-        /* old code
-    fishes.push_back(FishSpecies("King Salmon", 12, 30, 5, 36));
-    fishes.push_back(FishSpecies("Marlin", 18, 120, 300, 1000));
-    fishes.push_back(FishSpecies("Oarfish", 120, 432, 50, 600));
-    fishes.push_back(FishSpecies("Trout", 6, 12, 0.5f, 8));
-    fishes.push_back(FishSpecies("Bass", 3, 10, 0.3f, 5));
-    fishes.push_back(FishSpecies("Tuna", 24, 48, 20, 300));
-    fishes.push_back(FishSpecies("Swordfish", 18, 30, 15, 200));
-    fishes.push_back(FishSpecies("Guppy", 0.5f, 2, 0.01f, 0.1f));
-    fishes.push_back(FishSpecies("Cod", 9, 18, 1, 15));
-    fishes.push_back(FishSpecies("Catfish", 5, 14, 0.6f, 8));
-    fishes.push_back(FishSpecies("Angelfish", 3, 6, 0.02f, 0.2f));
-    fishes.push_back(FishSpecies("Piranha", 4, 8, 0.3f, 2));
-    fishes.push_back(FishSpecies("Clownfish", 2, 5, 0.05f, 0.3f));
-    fishes.push_back(FishSpecies("Sturgeon", 12, 60, 10, 300));
-    fishes.push_back(FishSpecies("Halibut", 18, 36, 10, 150));
-    fishes.push_back(FishSpecies("Mahi Mahi", 10, 20, 5, 40));
-    fishes.push_back(FishSpecies("Pufferfish", 4, 8, 0.1f, 1));
-    fishes.push_back(FishSpecies("Walleye", 1, 30, 2, 20));
-    fishes.push_back(FishSpecies("Perch", 0.5f, 12, 0.3f, 1.5f));
-    fishes.push_back(FishSpecies("Bluegill", 0.2f, 8, 3, 10));
-    fishes.push_back(FishSpecies("Snapper", 1.2f, 18, 2, 15));
-    fishes.push_back(FishSpecies("Carp", 1.5f, 36, 5, 30));
-    fishes.push_back(FishSpecies("Rockfish", 1, 14, 0.8f, 3));
-    fishes.push_back(FishSpecies("Flounder", 0.4f, 12, 0.5f, 2));
-    fishes.push_back(FishSpecies("Haddock", 1.2f, 22, 1.5f, 10));
-    fishes.push_back(FishSpecies("Redfish", 0.8f, 20, 1, 6));
-    fishes.push_back(FishSpecies("Archerfish", 0.3f, 10, 2, 8));
-    fishes.push_back(FishSpecies("Blue Whale", 1000, 100000, 200000, 200000));
-    fishes.push_back(FishSpecies("Magikarp", 0.2f, 12, 0.02f, 0.5));
-    fishes.push_back(FishSpecies("Humuhumunukunukuapua'a", 0.15f, 5, 1, 12));
-    fishes.push_back(FishSpecies("O'opu Alamo'o", 0.05f, 0.15f, 0.75f, 2.8f));
-    fishes.push_back(FishSpecies("Patagonian Toothfish", 10, 200, 9, 90));
-    fishes.push_back(FishSpecies("Tiger Shark", 400, 2000, 72, 198));
-    fishes.push_back(FishSpecies("Dugong", 400, 2240, 72, 160));
-    fishes.push_back(FishSpecies("Plecostomus", 0.1f, 1.5f, 1.5f, 12));
-    fishes.push_back(FishSpecies("Manta Ray", 200, 2950, 60, 276));
-    fishes.push_back(FishSpecies("Bumblebee", 0.0002f, 0.0004f, 0.4f, 0.9f));
-    fishes.push_back(FishSpecies("Blobfish", 6, 20, 10, 40));
-    */
 
     // Game loop
     std::string userInput;
