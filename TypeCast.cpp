@@ -14,13 +14,13 @@ static inline float generateRandom(float min, float max) {
     return min + static_cast<float>(std::rand()) / (static_cast<float>(RAND_MAX / (max - min)));
 }
 
-// Represents a species of fish with arbitrary (but functional) default stat ranges
+// Represents a species of fish with stat ranges
 struct FishSpecies {
-    std::string name = "unnamed fish";
-    float minWeight = 0.5f;
-    float maxWeight = 25;
-    float minLength = 4;
-    float maxLength = 64;
+    std::string name;
+    float minWeight;
+    float maxWeight;
+    float minLength;
+    float maxLength;
 
     // Constructor
     FishSpecies(std::string n, float minW, float maxW, float minL, float maxL)
@@ -32,8 +32,8 @@ struct FishSpecies {
 // Represents an instance of a caught fish with randomized stats represented as floats (get it, float?)
 struct Fish {
     std::string name = "unnamed fish";
-    float weight = 0.0f;
-    float length = 0.0f;
+    float weight;
+    float length;
 
     // Constructor using a FishSpecies
     Fish(const FishSpecies& species)
@@ -119,8 +119,6 @@ int main() {
 
         // Wait for the user to press Enter
         std::cin.get();
-
-        // Clear the screen
         clearScreen();
 
         // Ask the user if they want to go fishing
