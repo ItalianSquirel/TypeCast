@@ -35,7 +35,16 @@ struct Fish {
 
     // Function to generate a random float in a given range
     static inline float generateRandom(float min, float max) {
-	@@ -48,11 +44,11 @@ void clearScreen() {
+        return min + static_cast<float>(std::rand()) / (static_cast<float>(RAND_MAX / (max - min)));
+    }
+};
+
+// Function to clear the console screen
+void clearScreen() {
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
 #endif
 }
 
@@ -108,7 +117,7 @@ int main() {
 
             // Create an instance of CaughtFish based on the selected fish species
             Fish caughtFish(fishes[randomIndex]);
-
+            
             // Print the details of the caught fish
             std::cout << "You've got a \033[1m" << caughtFish.name << "\033[0m on the hook!\n";
             std::cout << "Type its name to reel it in!\n";
@@ -135,7 +144,8 @@ int main() {
             while (userInput != "yes" && userInput != "no") {
                 std::cout << "Do you want to play again? (yes/no): ";
                 std::cin >> userInput;
-	@@ -149,7 +129,5 @@ int main() {
+            }
+        }
     }
 
     std::cout << "Thanks for playing!\n";
