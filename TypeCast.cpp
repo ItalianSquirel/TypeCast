@@ -1,3 +1,7 @@
+//Petie Deveer & Adrian Burke
+//Orion Lawlor CS 301 @ UAF
+//TypeCast optimization project
+
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -5,7 +9,12 @@
 #include <string>
 #include <chrono>
 
-// Represents a species of fish with arbitrary (but functional) default values
+// Generate a random float in a given range
+static inline float generateRandom(float min, float max) {
+    return min + static_cast<float>(std::rand()) / (static_cast<float>(RAND_MAX / (max - min)));
+}
+
+// Represents a species of fish with arbitrary (but functional) default stat ranges
 struct FishSpecies {
     std::string name = "unnamed fish";
     float minWeight = 0.5f;
@@ -20,7 +29,7 @@ struct FishSpecies {
     }
 };
 
-// Represents an instance of a caught fish with calculated stats
+// Represents an instance of a caught fish with randomized stats represented as floats (get it, float?)
 struct Fish {
     std::string name = "unnamed fish";
     float weight = 0.0f;
@@ -32,14 +41,9 @@ struct Fish {
           length(generateRandom(species.minLength, species.maxLength)) {
         // Init code
     }
-
-    // Function to generate a random float in a given range
-    static inline float generateRandom(float min, float max) {
-        return min + static_cast<float>(std::rand()) / (static_cast<float>(RAND_MAX / (max - min)));
-    }
 };
 
-// Function to clear the console screen
+//clear the console screen
 void clearScreen() {
 #ifdef _WIN32
     system("cls");
@@ -61,7 +65,7 @@ int main() {
     //set a time point to benchmark array declaration
     std::chrono::time_point<std::chrono::system_clock> debugTimeProgramStart = std::chrono::system_clock::now();
 
-    // Sample fish species
+    // initialize array of fish species
     std::array<FishSpecies,38> fishes{ {
         {"King Salmon", 12, 30, 5, 36},
         {"Marlin", 18, 120, 300, 1000},
@@ -159,7 +163,7 @@ int main() {
                 std::cout << "The line snapped! Your fish got away!\n";
             }
 
-            // Ask if the player wants to play again
+            // Ask if the player wants to play again. if yes, game loop will restart. If no, game loop will exit. Else, ask again.
             while (userInput != "yes" && userInput != "no") {
                 std::cout << "Do you want to play again? (yes/no): ";
                 std::cin >> userInput;
