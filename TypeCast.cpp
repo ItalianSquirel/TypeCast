@@ -103,6 +103,10 @@ int main() {
         {"Blobfish", 6, 20, 10, 40}
     } };
 
+    //benchmark array initialization time
+    std::cout << "array initialized by: ";
+    printDurationSinceTime(debugTimeProgramStart);
+
     // Game loop
     std::string userInput;
     while (userInput != "no") {
