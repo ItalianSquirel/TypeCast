@@ -2,132 +2,106 @@
 #include <cstdlib>
 #include <ctime>
 #include <array>
-#include <string_view>
+#include <string>
 #include <chrono>
 
 // Represents a species of fish with arbitrary (but functional) default values
 struct FishSpecies {
-    std::string_view name;
-    float minWeight;
-    float maxWeight;
-    float minLength;
-    float maxLength;
+    std::string name = "unnamed fish";
+    float minWeight = 0.5f;
+    float maxWeight = 25;
+    float minLength = 4;
+    float maxLength = 64;
 
     // Constructor
-    FishSpecies(std::string_view n, float minW, float maxW, float minL, float maxL)
-        : name(n), minWeight(minW), maxWeight(maxW), minLength(minL), maxLength(maxL) {}
+    FishSpecies(std::string n, float minW, float maxW, float minL, float maxL)
+        : name(n), minWeight(minW), maxWeight(maxW), minLength(minL), maxLength(maxL) {
+        // Init code
+    }
 };
 
 // Represents an instance of a caught fish with calculated stats
 struct Fish {
-    std::string_view name;
-    float weight;
-    float length;
+    std::string name = "unnamed fish";
+    float weight = 0.0f;
+    float length = 0.0f;
 
     // Constructor using a FishSpecies
     Fish(const FishSpecies& species)
         : name(species.name), weight(generateRandom(species.minWeight, species.maxWeight)),
-          length(generateRandom(species.minLength, species.maxLength)) {}
+          length(generateRandom(species.minLength, species.maxLength)) {
+        // Init code
+    }
 
     // Function to generate a random float in a given range
     static inline float generateRandom(float min, float max) {
-        return min + static_cast<float>(std::rand()) / (static_cast<float>(RAND_MAX / (max - min)));
-    }
-};
-
-// Function to clear the console screen
-void clearScreen() {
-#ifdef _WIN32
-    system("cls");
-#else
-    system("clear");
+	@@ -48,11 +44,11 @@ void clearScreen() {
 #endif
 }
+
 
 int main() {
     // Seed the random number generator
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
-
-// Sample fish species
+    // Sample fish species
     std::array<FishSpecies,38> fishes{ {
         {"King Salmon", 12, 30, 5, 36},
         {"Marlin", 18, 120, 300, 1000},
-        {"Oarfish", 120, 432, 50, 600},
-        {"Trout", 6, 12, 0.5f, 8},
-        {"Bass", 3, 10, 0.3f, 5},
-        {"Tuna", 24, 48, 20, 300},
-        {"Swordfish", 18, 30, 15, 200},
-        {"Guppy", 0.5f, 2, 0.01f, 0.1f},
-        {"Cod", 9, 18, 1, 15},
-        {"Catfish", 5, 14, 0.6f, 8},
-        {"Angelfish", 3, 6, 0.02f, 0.2f},
-        {"Piranha", 4, 8, 0.3f, 2},
-        {"Clownfish", 2, 5, 0.05f, 0.3f},
-        {"Sturgeon", 12, 60, 10, 300},
-        {"Halibut", 18, 36, 10, 150},
-        {"Mahi Mahi", 10, 20, 5, 40},
-        {"Pufferfish", 4, 8, 0.1f, 1},
-        {"Walleye", 1, 30, 2, 20},
-        {"Perch", 0.5f, 12, 0.3f, 1.5f},
-        {"Bluegill", 0.2f, 8, 3, 10},
-        {"Snapper", 1.2f, 18, 2, 15},
-        {"Carp", 1.5f, 36, 5, 30},
-        {"Rockfish", 1, 14, 0.8f, 3},
-        {"Flounder", 0.4f, 12, 0.5f, 2},
-        {"Haddock", 1.2f, 22, 1.5f, 10},
-        {"Redfish", 0.8f, 20, 1, 6},
-        {"Archerfish", 0.3f, 10, 2, 8},
-        {"Blue Whale", 1000, 100000, 200000, 200000},
-        {"Magikarp", 0.2f, 12, 0.02f, 0.5},
-        {"Humuhumunukunukuapua'a", 0.15f, 5, 1, 12},
-        {"O'opu Alamo'o", 0.05f, 0.15f, 0.75f, 2.8f},
-        {"Patagonian Toothfish", 10, 200, 9, 90},
-        {"Tiger Shark", 400, 2000, 72, 198},
-        {"Dugong", 400, 2240, 72, 160},
-        {"Plecostomus", 0.1f, 1.5f, 1.5f, 12},
-        {"Manta Ray", 200, 2950, 60, 276},
-        {"Bumblebee", 0.0002f, 0.0004f, 0.4f, 0.9f},
-        {"Blobfish", 6, 20, 10, 40}
-    } };
-
+	@@ -97,50 +93,34 @@ int main() {
     // Game loop
     std::string userInput;
     while (userInput != "no") {
+        // Print the "title screen"
         std::cout << "\nWelcome to the game! Press Enter to start...\n";
+
+        // Wait for the user to press Enter
         std::cin.get();
+
+        // Clear the screen
         clearScreen();
 
+        // Ask the user if they want to go fishing
         std::cout << "Want to go fishing? Type the word \"cast\"!\n";
         std::cin >> userInput;
 
+        // Check if the user typed "cast"
         if (userInput == "cast") {
+            // Generate a random index to select a fish species from the vector
             int randomIndex = std::rand() % fishes.size();
+
+            // Create an instance of CaughtFish based on the selected fish species
             Fish caughtFish(fishes[randomIndex]);
-            
+
+            // Print the details of the caught fish
             std::cout << "You've got a \033[1m" << caughtFish.name << "\033[0m on the hook!\n";
             std::cout << "Type its name to reel it in!\n";
 
+            //set the time up
+            float secondsToCatch = caughtFish.name.length() * 0.5f;
             std::chrono::time_point<std::chrono::system_clock> hookTime = std::chrono::system_clock::now();
             std::cin >> userInput;
 
+            // Check if the user entered the correct fish name
             if (userInput == caughtFish.name) {
-                if (std::chrono::duration_cast<std::chrono::duration<float>>(std::chrono::system_clock::now() - hookTime).count() <= caughtFish.name.length() * 0.5f) {
+                if (std::chrono::duration_cast<std::chrono::duration<float>>(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - hookTime)).count() <= secondsToCatch) {
                     std::cout << "You caught a \033[1m" << caughtFish.name << "\033[0m!\n";
                     std::cout << "Weight: " << caughtFish.weight << " lbs, Length: " << caughtFish.length << " inches\n";
-                } else {
+                }
+                else {
                     std::cout << "Too slow! The fish got off the hook.\n";
                 }
             } else {
                 std::cout << "The line snapped! Your fish got away!\n";
             }
 
+            // Ask if the player wants to play again
             while (userInput != "yes" && userInput != "no") {
                 std::cout << "Do you want to play again? (yes/no): ";
                 std::cin >> userInput;
-            }
-        }
+	@@ -149,7 +129,5 @@ int main() {
     }
 
     std::cout << "Thanks for playing!\n";
+
     return 0;
 }
