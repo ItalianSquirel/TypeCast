@@ -48,6 +48,10 @@ void clearScreen() {
 #endif
 }
 
+//prints the time (in nanoseconds) that has elapsed since a given time_point
+void printDurationSinceTime(std::chrono::time_point<std::chrono::system_clock> timeStart) {
+    std::cout << std::chrono::duration_cast<std::chrono::duration<float>>(std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::system_clock::now() - timeStart)).count() << " ns\n";
+}
 
 int main() {
     // Seed the random number generator
