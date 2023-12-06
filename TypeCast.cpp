@@ -128,9 +128,15 @@ int main() {
             // Generate a random index to select a fish species from the vector
             int randomIndex = std::rand() % fishes.size();
 
+            //set debug timepoint
+            std::chrono::time_point<std::chrono::system_clock> debugTimeFishAccessStart = std::chrono::system_clock::now();
+
             // Create an instance of CaughtFish based on the selected fish species
             Fish caughtFish(fishes[randomIndex]);
-            
+
+            //print access time
+            std::cout << "fish access time: ";
+            printDurationSinceTime(debugTimeFishAccessStart);
             // Print the details of the caught fish
             std::cout << "You've got a \033[1m" << caughtFish.name << "\033[0m on the hook!\n";
             std::cout << "Type its name to reel it in!\n";
