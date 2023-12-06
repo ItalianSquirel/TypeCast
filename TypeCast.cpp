@@ -54,8 +54,13 @@ void printDurationSinceTime(std::chrono::time_point<std::chrono::system_clock> t
 }
 
 int main() {
+    std::cout << "program started\n";
     // Seed the random number generator
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
+    //set a time point to benchmark array declaration
+    std::chrono::time_point<std::chrono::system_clock> debugTimeProgramStart = std::chrono::system_clock::now();
+
     // Sample fish species
     std::array<FishSpecies,38> fishes{ {
         {"King Salmon", 12, 30, 5, 36},
